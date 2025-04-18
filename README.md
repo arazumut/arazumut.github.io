@@ -1,1 +1,0 @@
-# arazumut.github.io
