@@ -293,7 +293,7 @@ article { display: none; }
     position: relative;
     overflow: hidden;
     padding: 3px;
-    border: 2px solid yellow;
+    border: 2px solid var(--orange-yellow-crayola);
     background-clip: padding-box;
 }
 
@@ -1379,8 +1379,83 @@ textarea.form-input {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Umut Araz - Web Developer ve Yazılım Geliştirici Portfolyosu">
+    <meta name="theme-color" content="#121212">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Tarayıcı önbelleğini kontrol etme -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    
     <title>Kamil Umut Araz</title>
     <link rel="shortcut icon" href="4380747.jpg" type="image/x-icon">
+    
+    <!-- Performans İyileştirmeleri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" as="style">
+    <link rel="preload" href="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" as="script">
+    
+    <!-- Font yükleme -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap">
+    
+    <!-- Kritik CSS'i doğrudan sayfaya ekleyin -->
+    <style>
+        :root {
+            --smoky-black: hsl(0, 0%, 7%);
+            --orange-yellow-crayola: hsl(45, 100%, 72%);
+            --eerie-black1: hsl(240, 2%, 13%);
+            --vegas-gold: hsl(45, 54%, 58%);
+            --jet: hsl(0, 0%, 22%);
+            --transition1: .25s ease;
+        }
+        
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--smoky-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--eerie-black1);
+            border-top: 5px solid var(--orange-yellow-crayola);
+            border-radius: 50%;
+            animation: rotate 1s linear infinite;
+        }
+        
+        .loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        body {
+            background-color: var(--smoky-black);
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="loader-container">
@@ -1391,7 +1466,7 @@ textarea.form-input {
         <aside class="sidebar " data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <img src="IMG_6762.jpg" alt="avatar" width="80">
+                    <img src="IMG_6762.jpg" alt="avatar" width="80" loading="eager">
                 </figure>
 
                 <div class="info-content">
@@ -1501,7 +1576,7 @@ textarea.form-input {
                     <ul class="service-list">
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="fotis-fotopoulos-DuHKoV44prg-unsplash.jpg" alt="icon" width="40">
+                                <img src="fotis-fotopoulos-DuHKoV44prg-unsplash.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1512,7 +1587,7 @@ textarea.form-input {
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="markus-spiske-1LLh8k2_YFk-unsplash.jpg" alt="icon" width="40">
+                                <img src="markus-spiske-1LLh8k2_YFk-unsplash.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1523,7 +1598,7 @@ textarea.form-input {
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="markus-spiske-hbb6GkG6p9M-unsplash.jpg" alt="icon" width="40">
+                                <img src="markus-spiske-hbb6GkG6p9M-unsplash.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1534,7 +1609,7 @@ textarea.form-input {
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="caspar-camille-rubin-89xuP-XmyrA-unsplash.jpg" alt="icon" width="40">
+                                <img src="caspar-camille-rubin-89xuP-XmyrA-unsplash.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1545,7 +1620,7 @@ textarea.form-input {
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="7076118.jpg" alt="icon" width="40">
+                                <img src="7076118.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1556,7 +1631,7 @@ textarea.form-input {
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="programming-background-with-person-working-with-codes-computer.jpg" alt="icon" width="40">
+                                <img src="programming-background-with-person-working-with-codes-computer.jpg" alt="icon" width="40" loading="lazy">
                             </div>
 
                             <div class="service-content-box">
@@ -1613,7 +1688,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-03-16 21.50.36.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-03-16 21.50.36.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Araç Tamir Takip Sistemi</h3>
                             <p class="project-description">Araç tamir takip sistemi. Django ve Sqllite,Firebase ile hybrit olarak geliştirdiğim bir projedir.</p>
@@ -1629,7 +1704,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-04-08 15.58.26.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-04-08 15.58.26.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Tarım ve Hayvancılık Yönetim Sistemi</h3>
                             <p class="project-description">Tarım ve Hayvancılık Yönetim süreçlerini yöneten bir sistem. Django ve Sqllite ile geliştirdiğim bir projedir.</p>
@@ -1645,7 +1720,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-04-19 13.07.15.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-04-19 13.07.15.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Dijital Katalog Sistemi</h3>
                             <p class="project-description">Pazarlama süreçlerini kolaylaştıran kapsamlı bir katalog sistemi. Django ve Sqllite ile geliştirdiğim bir projedir.</p>
@@ -1661,7 +1736,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-04-10 20.38.14.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-04-10 20.38.14.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Akademi Yönetim Sistemi</h3>
                             <p class="project-description">Akademi Yönetim Sistemi, eğitim kurumları için geliştirilmiş kapsamlı bir yönetim çözümüdür.</p>
@@ -1677,7 +1752,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-04-19 13.38.23.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-04-19 13.38.23.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Teklif Yönetim Sistemi</h3>
                             <p class="project-description">Bu proje, firmaların müşterilerine teklif verme sürecini dijitalleştiren ve yöneten bir web uygulamasıdır.</p>
@@ -1694,7 +1769,7 @@ textarea.form-input {
                     <div class="project-item">
                         <div class="project-card content-card">
                             <div class="project-image">
-                                <img src="Ekran Resmi 2025-04-19 17.29.20.png" alt="Proje Görüntüsü" width="100%">
+                                <img src="Ekran Resmi 2025-04-19 17.29.20.png" alt="Proje Görüntüsü" width="100%" loading="lazy">
                             </div>
                             <h3 class="h3 project-title">Şirket Yönetim Sistemi</h3>
                             <p class="project-description">Flask ile oluşturulmuş, şirket çalışanlarını, departmanları, izinleri ve projeleri yönetmek için tasarlanmış bir web uygulaması.</p>
@@ -1806,20 +1881,69 @@ textarea.form-input {
     </main>
 
     <script>
-
-        'use strict';
-
-// Sayfa Yükleme Animasyonu
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.querySelector('.loader-container').classList.add('loaded');
-        
-        // Hakkımda sayfası aktif ise, skill çubuklarını animasyonla göster
-        if (document.querySelector('.about.active')) {
-            animateSkillBars();
+        // Önbelleğe alma fonksiyonu - sayfa performansını artırır
+        function prefetchResources() {
+            const resources = [
+                'IMG_6762.jpg',
+                'fotis-fotopoulos-DuHKoV44prg-unsplash.jpg',
+                'markus-spiske-1LLh8k2_YFk-unsplash.jpg'
+            ];
+            
+            if ('caches' in window) {
+                caches.open('portfolio-assets').then(cache => {
+                    resources.forEach(url => {
+                        cache.add(url).catch(() => {
+                            console.log('Önbelleğe alma hatası:', url);
+                        });
+                    });
+                });
+            }
         }
-    }, 1000);
-});
+        
+        // Sayfa içeriğinin önden yüklenmesi için
+        document.addEventListener("DOMContentLoaded", function() {
+            // Önemli görselleri önden yükle
+            const importantImages = [
+                'IMG_6762.jpg',
+                'fotis-fotopoulos-DuHKoV44prg-unsplash.jpg',
+                'markus-spiske-1LLh8k2_YFk-unsplash.jpg'
+            ];
+            
+            // Görüntüleri önbelleğe alarak yükleme performansını artırır
+            importantImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+            
+            // İleri düzey önbelleğe alma
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    prefetchResources();
+                });
+            } else {
+                setTimeout(prefetchResources, 1000);
+            }
+        });
+        
+        // Sayfa Yükleme Animasyonu - daha hızlı yükleme süresi
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').classList.add('loaded');
+                
+                // Hakkımda sayfası aktif ise, skill çubuklarını animasyonla göster
+                if (document.querySelector('.about.active')) {
+                    animateSkillBars();
+                }
+                
+                // Sayfanın tamamen yüklenmesinden sonra kullanılmayan kaynakları temizle
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(() => {
+                        // Belleği temizle
+                        if (window.gc) window.gc();
+                    });
+                }
+            }, 600); // Yükleme süresini 1000ms'den 600ms'ye düşürdük
+        });
 
 //Opening or closing side bar
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -1852,14 +1976,14 @@ for(let i = 0; i < navigationLinks.length; i++) {
                 if (pageDataAttr === 'hakkımda') {
                     setTimeout(function() {
                         animateSkillBars();
-                    }, 300);
+                    }, 200); // 300'den 200'e düşürdük
                 }
                 
                 // Deneyimler sayfasına geçildiğinde zaman çizelgesi animasyonunu başlat
                 if (pageDataAttr === 'deneyimler') {
                     setTimeout(function() {
                         animateTimeline();
-                    }, 300);
+                    }, 200); // 300'den 200'e düşürdük
                 }
             } else {
                 pages[j].classList.remove('active');
@@ -1879,9 +2003,9 @@ function animateSkillBars() {
         
         // Sonra doğru genişliğe animasyonla getir
         setTimeout(() => {
-            const value = bar.parentElement.previousElementSibling.querySelector('data').getAttribute('value') + '%';
-            bar.style.width = value;
-        }, 100 + (index * 300));
+            const width = bar.style.width || bar.getAttribute('style')?.match(/width:\s*(\d+)%/)?.[1] + '%' || '0%';
+            bar.style.width = width;
+        }, 100 + (index * 200)); // Animasyon süresini 300'den 200'e düşürdük
     });
 }
 
@@ -1894,38 +2018,20 @@ function animateTimeline() {
     timelineItems.forEach((item, index) => {
         setTimeout(() => {
             item.querySelector('.timeline-content').style.opacity = '1';
-        }, 200 * index);
+        }, 150 * index); // 200'den 150'ye düşürdük
     });
     
     // Eğitim öğelerini sırayla görünür yap
     educationItems.forEach((item, index) => {
         setTimeout(() => {
             item.style.opacity = '1';
-        }, 300 * index);
+        }, 200 * index); // 300'den 200'e düşürdük
     });
 }
 
-// Form Gönderme İşlemi
-const formElement = document.querySelector('[data-form]');
-if (formElement) {
-    formElement.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Form verilerini al
-        const formData = new FormData(this);
-        const formValues = Object.fromEntries(formData);
-        
-        // Burada gerçek bir form gönderme işlemi yapılabilir
-        // Örnek olarak bir bildirim gösteriyoruz
-        alert('Mesajınız iletildi! En kısa sürede size dönüş yapacağım.');
-        
-        // Formu temizle
-        this.reset();
-    });
-}
     </script>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
 </body>
 </html>
