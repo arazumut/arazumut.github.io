@@ -1097,6 +1097,222 @@ textarea.form-input {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/*DENEYİMLER*/
+
+.timeline {
+    position: relative;
+    margin: 30px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    height: 100%;
+    width: 2px;
+    background: var(--jet);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--text-gradient-yellow);
+    box-shadow: 0 0 0 4px var(--eerie-black1);
+}
+
+.timeline-content {
+    position: relative;
+    padding: 20px;
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) .timeline-content {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) .timeline-content {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(3) .timeline-content {
+    animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(4) .timeline-content {
+    animation-delay: 0.8s;
+}
+
+.timeline-title {
+    margin-bottom: 10px;
+    color: var(--white2);
+}
+
+.timeline-date, .timeline-place {
+    display: block;
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs7);
+    margin-bottom: 5px;
+}
+
+.timeline-place {
+    font-style: italic;
+    color: var(--light-gray);
+}
+
+.timeline-description {
+    color: var(--light-gray);
+    font-size: var(--fs6);
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Eğitim Bölümü */
+.section-title {
+    margin: 40px 0 20px 0;
+    color: var(--white2);
+    position: relative;
+    padding-bottom: 7px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--text-gradient-yellow);
+    border-radius: 3px;
+}
+
+.education-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    animation: slideInRight 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.education-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.education-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.education-icon-box {
+    margin-right: 15px;
+    color: var(--orange-yellow-crayola);
+    font-size: 24px;
+}
+
+.education-content {
+    flex: 1;
+}
+
+.education-title {
+    margin-bottom: 5px;
+    color: var(--white2);
+}
+
+.education-date, .education-school {
+    display: block;
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs7);
+    margin-bottom: 5px;
+}
+
+.education-school {
+    font-style: italic;
+    color: var(--light-gray);
+}
+
+.education-description {
+    color: var(--light-gray);
+    font-size: var(--fs6);
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+@media (min-width: 580px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-dot {
+        width: 20px;
+        height: 20px;
+        left: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .education-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .timeline::before {
+        left: calc(50% - 1px);
+    }
+    
+    .timeline-item {
+        padding-left: 0;
+        width: 50%;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        padding-right: 40px;
+        margin-right: auto;
+        margin-left: 0;
+        text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: 40px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+    
+    .timeline-dot {
+        left: auto;
+        right: -10px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-dot {
+        right: auto;
+        left: -10px;
+    }
+}
     </style>
 <head>
     <meta charset="UTF-8">
@@ -1195,6 +1411,7 @@ textarea.form-input {
                 <ul class="navbar-list">
                     <li class="navbar-item"><button class="navbar-link active" data-nav-link>Hakkımda</button></li>
                     <li class="navbar-item"><button class="navbar-link" data-nav-link>Projeler</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Deneyimler</button></li>
                 </ul>
             </nav>
 
@@ -1446,6 +1663,99 @@ textarea.form-input {
                 </section>
             </article>
 
+            <article class="experience" data-page="deneyimler">
+                <header>
+                    <h2 class="h2 article-title">Deneyimlerim</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <h3 class="h3 timeline-title">Backend Developer</h3>
+                            <span class="timeline-date">2024 - 2025</span>
+                            <span class="timeline-place">Privia Security A.Ş., İstanbul,Ataşehir</span>
+                            <p class="timeline-description">
+                               Backend Developer İntern olarak görev almamın ardından Web uygulamaları için güvenli ve ölçeklenebilir backend sistemleri geliştirme konusunda eşsiz deneyimler yaşadım. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <h3 class="h3 timeline-title">AI Trainer</h3>
+                            <span class="timeline-date">2024 - Şu anda</span>
+                            <span class="timeline-place">Outlier,Amerika Birleşik Devletleri,Remote</span>
+                            <p class="timeline-description">
+                                Yapay zeka modellerinin eğitimi ve optimizasyonu konusunda çalışıyorum. Veri ön işleme, model değerlendirme ve geliştirme süreçlerinde aktif rol alıyorum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <h3 class="h3 timeline-title">Python Eğitmeni</h3>
+                            <span class="timeline-date">2023 - Şu anda</span>
+                            <span class="timeline-place">Kodland, İtalya,Remote</span>
+                            <p class="timeline-description">
+                                Çocuklara ve gençlere programlama eğitimi veriyorum. Python dili üzerine müfredat hazırlama ve öğretim yöntemleri geliştirme konularında çalışıyorum.
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <h3 class="h3 timeline-title">Backend Developer İntern</h3>
+                            <span class="timeline-date">2023 - 2024</span>
+                            <span class="timeline-place">Privia Security A.Ş., İstanbul,Ataşehir</span>
+                            <p class="timeline-description">
+                                Web sistemler ve proje sunumları hakkında bilgi sahibi oldum ve değerli deneyim, bilgiler kazandım.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <h3 class="h3 timeline-title">Web Developer İntern</h3>
+                            <span class="timeline-date">2022 - 2023</span>
+                            <span class="timeline-place">Konya Teknik Üniversitesi Bilgi İşlem Dairesi, Konya</span>
+                            <p class="timeline-description">
+                                Web geliştirme projelerinde HTML, CSS ve JavaScript becerilerimi geliştirdim. Responsive tasarım ve kullanıcı deneyimi konularında pratik yapma fırsatı buldum.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="education">
+                    <h3 class="h3 section-title">Eğitim</h3>
+                    
+                    <ul class="education-list">
+                        <li class="education-item content-card">
+                            <div class="education-icon-box">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </div>
+                            <div class="education-content">
+                                <h4 class="h4 education-title">Bilgisayar Programcılığı</h4>
+                                <span class="education-date">2022 - 2024</span>
+                                <span class="education-school">Konya Teknik Üniversitesi</span>
+                                <p class="education-description">
+                                    Bilgisayar programlama, veri yapıları, algoritma tasarımı ve yazılım geliştirme alanlarında kapsamlı eğitim aldım ve almaya devam ediyorum.
+                                </p>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </section>
+            </article>
         </div>
     </main>
 
@@ -1498,6 +1808,13 @@ for(let i = 0; i < navigationLinks.length; i++) {
                         animateSkillBars();
                     }, 300);
                 }
+                
+                // Deneyimler sayfasına geçildiğinde zaman çizelgesi animasyonunu başlat
+                if (pageDataAttr === 'deneyimler') {
+                    setTimeout(function() {
+                        animateTimeline();
+                    }, 300);
+                }
             } else {
                 pages[j].classList.remove('active');
                 navigationLinks[j].classList.remove('active');
@@ -1519,6 +1836,26 @@ function animateSkillBars() {
             const value = bar.parentElement.previousElementSibling.querySelector('data').getAttribute('value') + '%';
             bar.style.width = value;
         }, 100 + (index * 300));
+    });
+}
+
+// Zaman çizelgesi animasyonu
+function animateTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const educationItems = document.querySelectorAll('.education-item');
+    
+    // Timeline öğelerini sırayla görünür yap
+    timelineItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.querySelector('.timeline-content').style.opacity = '1';
+        }, 200 * index);
+    });
+    
+    // Eğitim öğelerini sırayla görünür yap
+    educationItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = '1';
+        }, 300 * index);
     });
 }
 
