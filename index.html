@@ -107,6 +107,25 @@
     to { transform: rotate(360deg); }
 }
 
+/* Avatar çerçeve animasyonu */
+@keyframes borderPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+@keyframes glowing {
+    0% { border-color: var(--orange-yellow-crayola); box-shadow: 0 0 5px var(--orange-yellow-crayola); }
+    50% { border-color: var(--vegas-gold); box-shadow: 0 0 20px var(--vegas-gold); }
+    100% { border-color: var(--orange-yellow-crayola); box-shadow: 0 0 5px var(--orange-yellow-crayola); }
+}
+
+@keyframes rotate-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -268,17 +287,41 @@ article { display: none; }
     transition: var(--transition2);
 }
 
+.avatar-box {
+    background: var(--bg-gradient-onyx);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 3px;
+    border: 2px solid yellow;
+    background-clip: padding-box;
+}
+
+.avatar-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--orange-yellow-crayola), var(--vegas-gold), var(--orange-yellow-crayola), var(--vegas-gold));
+    background-size: 300% 300%;
+    border-radius: 20px;
+    z-index: -1;
+    animation: rotate-gradient 3s linear infinite;
+}
+
+.avatar-box img {
+    border-radius: 18px;
+    display: block;
+}
+
 .sidebar-info {
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
-}
-
-.avatar-box {
-    background: var(--bg-gradient-onyx);
-    border-radius: 20px;
 }
 
 .info-content .name {
@@ -773,8 +816,18 @@ article { display: none; }
 
     .sidebar-info { gap: 25px; }
 
-    .avatar-box { border-radius: 30px; }
-        .avatar-box img { width: 120px; }
+    .avatar-box { 
+        border-radius: 30px;
+    }
+    
+    .avatar-box::before {
+        border-radius: 30px;
+    }
+    
+    .avatar-box img { 
+        width: 120px; 
+        border-radius: 27px;
+    }
 
     .info-content .name { margin-bottom: 15px; }
     .info-content .title { padding: 5px 10px; }
@@ -956,6 +1009,15 @@ article { display: none; }
     .sidebar-info { flex-direction: column; }
 
     .avatar-box img { width: 150px; }
+    
+    .avatar-box { 
+        margin-bottom: 15px; 
+        padding: 5px;
+    }
+    
+    .avatar-box::before {
+        animation: rotate-gradient 4s linear infinite, glowing 3s infinite;
+    }
 
     .info-content .name {
         white-space: nowrap;
