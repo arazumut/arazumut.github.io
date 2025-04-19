@@ -4,6 +4,35 @@
  /* Copyright (c) 2025 by Leonam Silva de Souza (https://codepen.io/leonam-silva-de-souza/pen/vYowKqP) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Yükleme Animasyonu */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--smoky-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid var(--eerie-black1);
+    border-top: 5px solid var(--orange-yellow-crayola);
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
 :root {
     --bg-gradient-onyx: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
     --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, .251) 3%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
@@ -49,6 +78,33 @@
 
     --transition1: .25s ease;
     --transition2: .5s ease-in-out;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 *, *::before, *::after {
@@ -102,9 +158,10 @@ main {
     box-shadow: var(--shadow1);
     z-index: 1;
     padding: 15px;
+    animation: fadeIn 0.8s ease-out;
 }
 
-    .sidebar.active { max-height: 405px; }
+    .sidebar.active { max-height: 550px; }
 
 .separator {
     width: 100%;
@@ -167,6 +224,7 @@ article { display: none; }
 .article-title {
     position: relative;
     padding-bottom: 7px;
+    animation: fadeIn 0.6s ease-out;
 }
 
     .article-title::after {
@@ -381,7 +439,18 @@ article { display: none; }
         text-align: justify;
         padding-left: 10px;
         padding-right: 10px;
-     }
+        animation: slideInLeft 0.8s ease-out;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    }
+
+    .about-text p:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .about-text p:nth-child(2) {
+        animation-delay: 0.6s;
+    }
 
 .service { margin-bottom: 35px; }
 
@@ -400,7 +469,15 @@ article { display: none; }
     border-radius: 14px;
     box-shadow: var(--shadow2);
     z-index: 1;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.8s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
+
+    .service-item:hover {
+        transform: translateY(-5px);
+    }
 
     .service-item::before {
         content: '';
@@ -411,7 +488,39 @@ article { display: none; }
         z-index: -1;
     }
 
-.service-icon-box { margin-bottom: 10px; }
+.service-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.service-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.service-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.service-item:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.service-item:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.service-item:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+.service-icon-box { 
+    margin-bottom: 10px; 
+    transition: transform 0.5s ease;
+}
+
+    .service-icon-box:hover {
+        animation: pulse 1s infinite;
+    }
+    
     .service-icon-box img { margin: auto; }
 
 .service-content-box { text-align: center; }
@@ -426,11 +535,33 @@ article { display: none; }
 
 /*SKILLS*/
 
-.skills-title { margin-bottom: 20px; }
+.skills-title { margin-bottom: 20px; animation: slideInLeft 0.6s ease-out; }
 
-.skills-list { padding: 20px; }
+.skills-list { padding: 20px; animation: fadeIn 0.8s ease-out; }
+
+.skills-item {
+    animation: slideInRight 0.5s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
 
 .skills-item:not(:last-child) {margin-bottom: 15px; }
+
+.skills-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.skills-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.skills-item:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.skills-item:nth-child(4) {
+    animation-delay: 1.1s;
+}
 
 .skill .title-wrapper {
     display: flex;
@@ -452,10 +583,144 @@ article { display: none; }
     border-radius: 10px;
 }
 
+/* Beceri Çubukları Animasyonu */
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
 .skills-progress-fill {
     background: var(--text-gradient-yellow);
     height: 100%;
     border-radius: inherit;
+    transition: width 1s ease-in-out;
+    position: relative;
+    width: 0;
+    animation: fillBar 1.5s forwards;
+}
+
+.skills-item:nth-child(1) .skills-progress-fill {
+    animation-delay: 0.5s;
+}
+
+.skills-item:nth-child(2) .skills-progress-fill {
+    animation-delay: 0.8s;
+}
+
+.skills-item:nth-child(3) .skills-progress-fill {
+    animation-delay: 1.1s;
+}
+
+.skills-item:nth-child(4) .skills-progress-fill {
+    animation-delay: 1.4s;
+}
+
+/* Servis Öğeleri için hover efekti */
+.service-item:hover .service-icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Başlık animasyonları */
+.service-title, .skills-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-title::before, .skills-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-gradient-yellow);
+    transform: translateX(-100%);
+    animation: slideRight 1s forwards 0.5s;
+}
+
+@keyframes slideRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/*PROJELER*/
+
+.projects-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.project-card {
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-title {
+    margin-bottom: 10px;
+    color: var(--white2);
+}
+
+.project-description {
+    color: var(--light-gray);
+    font-size: var(--fs6);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    background: var(--onyx);
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.project-link {
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs7);
+    font-weight: var(--fw500);
+    text-transform: uppercase;
+    align-self: flex-end;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--vegas-gold);
 }
 
 /*MEDIA QUERIES*/
@@ -504,7 +769,7 @@ article { display: none; }
         margin-bottom: 30px;
     }
 
-        .sidebar.active { max-height: 584px; }
+        .sidebar.active { max-height: 650px; }
 
     .sidebar-info { gap: 25px; }
 
@@ -558,6 +823,15 @@ article { display: none; }
     }
 
     .service-content-box { text-align: left; }
+
+    .projects-list {
+        padding: 0 20px;
+    }
+
+    .form {
+        max-width: 500px;
+        margin-inline: auto;
+    }
 }
 
 @media (min-width: 768px) {
@@ -574,6 +848,15 @@ article { display: none; }
     .article-title { padding-bottom: 20px; }
 
     .service-list { grid-template-columns: 1fr 1fr; }
+
+    .projects-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .input-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -619,6 +902,10 @@ article { display: none; }
     .service-list {
         grid-template-columns: 1fr 1fr;
         gap: 20px 25px;
+    }
+
+    .projects-list {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -704,6 +991,112 @@ article { display: none; }
 
     .social-list { justify-content: center; }
 }
+
+/*İLETİŞİM*/
+
+.contact-form {
+    margin-top: 25px;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    color: var(--white2);
+}
+
+.form {
+    display: grid;
+    gap: 25px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.input-wrapper {
+    display: grid;
+    gap: 15px;
+}
+
+.form-input {
+    color: var(--white2);
+    font-size: var(--fs7);
+    padding: 15px;
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    outline: none;
+    background: var(--eerie-black1);
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--orange-yellow-crayola);
+}
+
+.form-input::placeholder {
+    color: var(--light-gray70);
+}
+
+textarea.form-input {
+    min-height: 150px;
+    max-height: 250px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border-radius: 14px;
+    background: var(--border-gradient-onyx);
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs7);
+    text-transform: uppercase;
+    font-weight: var(--fw500);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.form-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-gradient-jet);
+    border-radius: inherit;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.form-btn:hover {
+    background: var(--bg-gradient-yellow1);
+}
+
+.form-btn:hover::before {
+    background: var(--bg-gradient-yellow2);
+}
+
+.form-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.form-btn ion-icon {
+    font-size: 18px;
+}
+
+@media (min-width: 580px) {
+    .form {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .input-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
     </style>
 <head>
     <meta charset="UTF-8">
@@ -712,6 +1105,10 @@ article { display: none; }
     <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
 </head>
 <body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
     <main>
         <aside class="sidebar " data-sidebar>
             <div class="sidebar-info">
@@ -797,17 +1194,18 @@ article { display: none; }
             <nav class="navbar">
                 <ul class="navbar-list">
                     <li class="navbar-item"><button class="navbar-link active" data-nav-link>Hakkımda</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Projeler</button></li>
                 </ul>
             </nav>
 
-            <article class="about active" data-page="about">
+            <article class="about active" data-page="hakkımda">
                 <header>
                     <h2 class="h2 article-title">Hakkımda</h2>
                 </header>
 
                 <section class="about-text">
                     <p>Merhaba! Ben Kamil Umut Araz. Konya Teknik Üniversitesi Bilgisayar Programcılığı 2. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenlik alanlarına büyük bir tutku ile yaklaşıyorum. Javascript, CSS, C++, PHP, Python ve Golang gibi dillerde kendimi sürekli geliştiriyor; özellikle backend geliştirme ve siber güvenlik konularında derinlemesine çalışıyorum. Aynı zamanda mobil uygulamalar geliştirmeye çalışıyorum.</p>
-                    <p>Privia Security A.Ş’de Backend Developer olarak deneyimim varken, aynı zamanda Outlier'da AI Trainer olarak görev alıyorum. Tüm bunların yanında Kodland’da Python eğitmenliği yaparak bilgimi çocuklarımıza paylaşıyorum. Web geliştirme, sızma testleri, görüntü işleme ve makine öğrenmesi gibi birçok alanda deneyim sahibiyim.
+                    <p>Privia Security A.Ş'de Backend Developer olarak deneyimim varken, aynı zamanda Outlier'da AI Trainer olarak görev alıyorum. Tüm bunların yanında Kodland'da Python eğitmenliği yaparak bilgimi çocuklarımıza paylaşıyorum. Web geliştirme, sızma testleri, görüntü işleme ve makine öğrenmesi gibi birçok alanda deneyim sahibiyim.
 
                         Teknolojiye olan ilgimi projelerle pekiştiriyor ve sürekli öğrenmeye devam ediyorum. Daha fazla bilgi için GitHub ve LinkedIn hesaplarıma göz atabilirsiniz! 🚀
                         
@@ -936,13 +1334,120 @@ article { display: none; }
                             <div class="skills-progress-bg">
                                 <div class="skills-progress-fill" style="width: 50%;"></div>
                             </div>
+                        </li>
+                    </ul>
+                </section>
             </article>
+
+            <article class="projects" data-page="projeler">
+                <header>
+                    <h2 class="h2 article-title">Projelerim</h2>
+                </header>
+
+                <section class="projects-list">
+                    <div class="project-item">
+                        <div class="project-card content-card">
+                            <div class="project-image">
+                                <img src="Ekran Resmi 2025-03-16 21.50.36.png" alt="Proje Görüntüsü" width="100%">
+                            </div>
+                            <h3 class="h3 project-title">Araç Tamir Takip Sistemi</h3>
+                            <p class="project-description">Araç tamir takip sistemi. Django ve Sqllite,Firebase ile hybrit olarak geliştirdiğim bir projedir.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Sqllite</span>
+                                <span class="tech-tag">Firebase</span>
+                            </div>
+                            <a href="https://github.com/arazumut/RepairTracking" class="project-link">Projeyi Gör →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-card content-card">
+                            <div class="project-image">
+                                <img src="Ekran Resmi 2025-04-08 15.58.26.png" alt="Proje Görüntüsü" width="100%">
+                            </div>
+                            <h3 class="h3 project-title">Tarım ve Hayvancılık Yönetim Sistemi</h3>
+                            <p class="project-description">Tarım ve Hayvancılık Yönetim süreçlerini yöneten bir sistem. Django ve Sqllite ile geliştirdiğim bir projedir.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Sqllite</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/arazumut/AgricultureManagements" class="project-link">Projeyi Gör →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-card content-card">
+                            <div class="project-image">
+                                <img src="Ekran Resmi 2025-04-19 13.07.15.png" alt="Proje Görüntüsü" width="100%">
+                            </div>
+                            <h3 class="h3 project-title">Dijital Katalog Sistemi</h3>
+                            <p class="project-description">Pazarlama süreçlerini kolaylaştıran kapsamlı bir katalog sistemi. Django ve Sqllite ile geliştirdiğim bir projedir.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Sqllite3</span>
+                                <span class="tech-tag">Bootstrap5.0</span>
+                            </div>
+                            <a href="https://github.com/arazumut/DigitalCatalog" class="project-link">Projeyi Gör →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-card content-card">
+                            <div class="project-image">
+                                <img src="Ekran Resmi 2025-04-10 20.38.14.png" alt="Proje Görüntüsü" width="100%">
+                            </div>
+                            <h3 class="h3 project-title">Akademi Yönetim Sistemi</h3>
+                            <p class="project-description">Akademi Yönetim Sistemi, eğitim kurumları için geliştirilmiş kapsamlı bir yönetim çözümüdür.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">.NET MVC</span>
+                                <span class="tech-tag">Azure SQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <a href="https://github.com/arazumut/AcademyManagementSystem" class="project-link">Projeyi Gör →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-card content-card">
+                            <div class="project-image">
+                                <img src="Ekran Resmi 2025-04-19 13.38.23.png" alt="Proje Görüntüsü" width="100%">
+                            </div>
+                            <h3 class="h3 project-title">Teklif Yönetim Sistemi</h3>
+                            <p class="project-description">Bu proje, firmaların müşterilerine teklif verme sürecini dijitalleştiren ve yöneten bir web uygulamasıdır.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django5.0<</span>
+                                <span class="tech-tag">Sqllite3</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Bootstrap5.0</span>
+                            </div>
+                            <a href="https://github.com/arazumut/offerManagement" class="project-link">Projeyi Gör →</a>
+                        </div>
+                    </div>
+
+
+                </section>
+            </article>
+
         </div>
     </main>
 
     <script>
 
         'use strict';
+
+// Sayfa Yükleme Animasyonu
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.querySelector('.loader-container').classList.add('loaded');
+        
+        // Hakkımda sayfası aktif ise, skill çubuklarını animasyonla göster
+        if (document.querySelector('.about.active')) {
+            animateSkillBars();
+        }
+    }, 1000);
+});
 
 //Opening or closing side bar
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -958,17 +1463,65 @@ const pages = document.querySelectorAll('[data-page]');
 
 for(let i = 0; i < navigationLinks.length; i++) {
     navigationLinks[i].addEventListener('click', function() {
+        // Menü öğesinin içeriğini küçük harfe çevir, Türkçe karakterleri koruyarak
+        const clickedPage = this.innerHTML.toLowerCase();
         
-        for(let i = 0; i < pages.length; i++) {
-            if(this.innerHTML.toLowerCase() == pages[i].dataset.page) {
-                pages[i].classList.add('active');
+        for(let j = 0; j < pages.length; j++) {
+            // Data-page özniteliğini al
+            const pageDataAttr = pages[j].dataset.page;
+            
+            // Menü öğesine ait sayfayı bul
+            if(clickedPage === pageDataAttr) {
+                pages[j].classList.add('active');
                 navigationLinks[i].classList.add('active');
                 window.scrollTo(0, 0);
+                
+                // Hakkımda sayfasına geçildiğinde animasyonları başlat
+                if (pageDataAttr === 'hakkımda') {
+                    setTimeout(function() {
+                        animateSkillBars();
+                    }, 300);
+                }
             } else {
-                pages[i].classList.remove('active');
-                navigationLinks[i]. classList.remove('active');
+                pages[j].classList.remove('active');
+                navigationLinks[j].classList.remove('active');
             }
         }
+    });
+}
+
+// Yetenek çubuklarını animasyonla göster
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skills-progress-fill');
+    
+    skillBars.forEach((bar, index) => {
+        // Önce genişliği sıfırla
+        bar.style.width = '0';
+        
+        // Sonra doğru genişliğe animasyonla getir
+        setTimeout(() => {
+            const value = bar.parentElement.previousElementSibling.querySelector('data').getAttribute('value') + '%';
+            bar.style.width = value;
+        }, 100 + (index * 300));
+    });
+}
+
+// Form Gönderme İşlemi
+const formElement = document.querySelector('[data-form]');
+if (formElement) {
+    formElement.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Form verilerini al
+        const formData = new FormData(this);
+        const formValues = Object.fromEntries(formData);
+        
+        // Burada gerçek bir form gönderme işlemi yapılabilir
+        // Örnek olarak bir bildirim gösteriyoruz
+        alert('Mesajınız iletildi! En kısa sürede size dönüş yapacağım.');
+        
+        // Formu temizle
+        this.reset();
     });
 }
     </script>
