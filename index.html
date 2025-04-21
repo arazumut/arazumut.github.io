@@ -1223,6 +1223,14 @@ textarea.form-input {
     animation-delay: 0.8s;
 }
 
+.timeline-item:nth-child(5) .timeline-content {
+    animation-delay: 1s;
+}
+
+.timeline-item:nth-child(6) .timeline-content {
+    animation-delay: 1.2s;
+}
+
 .timeline-title {
     margin-bottom: 10px;
     color: var(--white2);
@@ -1245,6 +1253,68 @@ textarea.form-input {
     font-size: var(--fs6);
     line-height: 1.6;
     margin-top: 10px;
+}
+
+@media (min-width: 580px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-dot {
+        width: 20px;
+        height: 20px;
+        left: 10px;
+    }
+}
+
+/* Orta ve geniş ekranlar için sağlı sollu zaman çizgisi */
+@media (min-width: 1024px) {
+    .timeline::before {
+        left: calc(50% - 1px);
+    }
+    
+    .timeline-item {
+        padding-left: 0;
+        width: 50%;
+    }
+    
+    .left-timeline-item {
+        padding-right: 40px;
+        margin-right: auto;
+        margin-left: 0;
+        text-align: right;
+    }
+    
+    .right-timeline-item {
+        padding-left: 40px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+    
+    .left-timeline-item .timeline-dot {
+        left: auto;
+        right: -10px;
+    }
+    
+    .right-timeline-item .timeline-dot {
+        right: auto;
+        left: -10px;
+    }
+    
+    /* Logo konumlandırma düzeltmeleri */
+    .left-timeline-item .company-logo {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    
+    .right-timeline-item .company-logo {
+        margin-left: 0;
+        margin-right: auto;
+    }
 }
 
 /* Eğitim Bölümü */
@@ -1431,7 +1501,7 @@ textarea.form-input {
 }
 
 .education-item .education-logo {
-    max-width: 60px;
+    max-width: 90px;
     height: auto;
     margin-right: 15px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -1928,11 +1998,11 @@ textarea.form-input {
 
                 <section class="timeline">
 
-                    <div class="timeline-item">
+                    <div class="timeline-item left-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
-                                <img src="last-guard.png" alt="Kodland Logo" width="80" loading="lazy">
+                                <img src="last-guard.png" alt="LastGuard Logo" width="80" loading="lazy">
                             </div>
                             <h3 class="h3 timeline-title">Software Developer & Cyber Security Intern</h3>
                             <span class="timeline-date">2025 - Şu anda</span>
@@ -1943,8 +2013,7 @@ textarea.form-input {
                         </div>
                     </div>
 
-
-                    <div class="timeline-item">
+                    <div class="timeline-item right-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
@@ -1959,7 +2028,7 @@ textarea.form-input {
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item left-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
@@ -1974,7 +2043,7 @@ textarea.form-input {
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item right-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
@@ -1989,8 +2058,7 @@ textarea.form-input {
                         </div>
                     </div>
 
-                    
-                    <div class="timeline-item">
+                    <div class="timeline-item left-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
@@ -2004,9 +2072,8 @@ textarea.form-input {
                             </p>
                         </div>
                     </div>
-                </section>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item right-timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
                             <div class="company-logo">
