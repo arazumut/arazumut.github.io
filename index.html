@@ -1377,6 +1377,72 @@ textarea.form-input {
         left: -10px;
     }
 }
+
+/* Şirket Logo Stilleri */
+.company-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: var(--bg-gradient-jet);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid var(--jet);
+    box-shadow: var(--shadow1);
+    transition: all 0.3s ease;
+}
+
+.company-logo img {
+    max-width: 80px;
+    height: auto;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover .company-logo {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow2);
+}
+
+.timeline-content:hover .company-logo img {
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .company-logo {
+        padding: 12px;
+    }
+    
+    .company-logo img {
+        max-width: 100px;
+    }
+}
+
+/* Eğitim Bölümüne Logo Eklemeleri */
+.education-item .education-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 24px;
+    min-width: 48px;
+}
+
+.education-item .education-logo {
+    max-width: 60px;
+    height: auto;
+    margin-right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.education-item:hover .education-logo {
+    transform: scale(1.1);
+}
     </style>
 <head>
     <meta charset="UTF-8">
@@ -1861,9 +1927,29 @@ textarea.form-input {
                 </header>
 
                 <section class="timeline">
+
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="last-guard.png" alt="Kodland Logo" width="80" loading="lazy">
+                            </div>
+                            <h3 class="h3 timeline-title">Software Developer & Cyber Security Intern</h3>
+                            <span class="timeline-date">2025 - Şu anda</span>
+                            <span class="timeline-place">LastGuard Cyber Security, Konya - Hybrid</span>
+                            <p class="timeline-description">
+                                Web projeleri ve siber güvenlik çözümlerinde deneyim kazanmayı ve bir hayli gelişmeyi planlyorum.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="privia-logo.png" alt="Privia Security Logo" width="80" loading="lazy">
+                            </div>
                             <h3 class="h3 timeline-title">Backend Developer</h3>
                             <span class="timeline-date">2024 - 2025</span>
                             <span class="timeline-place">Privia Security A.Ş., İstanbul - Ataşehir</span>
@@ -1876,6 +1962,9 @@ textarea.form-input {
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="outlier-logo.png" alt="Outlier Logo" width="80" loading="lazy">
+                            </div>
                             <h3 class="h3 timeline-title">AI Trainer</h3>
                             <span class="timeline-date">2024 - Şu anda</span>
                             <span class="timeline-place">Outlier,Amerika Birleşik Devletleri - Remote</span>
@@ -1888,6 +1977,9 @@ textarea.form-input {
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="kodland-logo.png" alt="Kodland Logo" width="80" loading="lazy">
+                            </div>
                             <h3 class="h3 timeline-title">Python Eğitmeni</h3>
                             <span class="timeline-date">2023 - Şu anda</span>
                             <span class="timeline-place">Kodland, İtalya - Remote</span>
@@ -1901,6 +1993,9 @@ textarea.form-input {
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="privia-logo.png" alt="Privia Security Logo" width="80" loading="lazy">
+                            </div>
                             <h3 class="h3 timeline-title">Backend Developer İntern</h3>
                             <span class="timeline-date">2023 - 2024</span>
                             <span class="timeline-place">Privia Security A.Ş., İstanbul - Ataşehir</span>
@@ -1914,6 +2009,9 @@ textarea.form-input {
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content content-card">
+                            <div class="company-logo">
+                                <img src="ktun-logo.png" alt="Konya Teknik Üniversitesi Logo" width="80" loading="lazy">
+                            </div>
                             <h3 class="h3 timeline-title">Web Developer İntern</h3>
                             <span class="timeline-date">2022 - 2023</span>
                             <span class="timeline-place">Konya Teknik Üniversitesi Bilgi İşlem Dairesi, Konya</span>
@@ -1929,8 +2027,8 @@ textarea.form-input {
                     
                     <ul class="education-list">
                         <li class="education-item content-card">
-                            <div class="education-icon-box">
-                                <ion-icon name="school-outline"></ion-icon>
+                            <div class="company-logo education-logo">
+                                <img src="ktun-logo.png" alt="Konya Teknik Üniversitesi Logo" width="80" loading="lazy">
                             </div>
                             <div class="education-content">
                                 <h4 class="h4 education-title">Bilgisayar Programcılığı</h4>
