@@ -1,4 +1,3 @@
-
 /* Copyright (c) 2025 by Leonam Silva de Souza (https://codepen.io/leonam-silva-de-souza/pen/vYowKqP) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -1269,143 +1268,6 @@ textarea.form-input {
    }
 }
 
-/* Orta ve geniş ekranlar için sağlı sollu zaman çizgisi */
-@media (min-width: 1024px) {
-   .timeline::before {
-       left: calc(50% - 1px);
-   }
-   
-   .timeline-item {
-       padding-left: 0;
-       width: 50%;
-   }
-   
-   .left-timeline-item {
-       padding-right: 40px;
-       margin-right: auto;
-       margin-left: 0;
-       text-align: right;
-   }
-   
-   .right-timeline-item {
-       padding-left: 40px;
-       margin-left: auto;
-       margin-right: 0;
-   }
-   
-   .left-timeline-item .timeline-dot {
-       left: auto;
-       right: -10px;
-   }
-   
-   .right-timeline-item .timeline-dot {
-       right: auto;
-       left: -10px;
-   }
-   
-   /* Logo konumlandırma düzeltmeleri */
-   .left-timeline-item .company-logo {
-       margin-left: auto;
-       margin-right: 0;
-   }
-   
-   .right-timeline-item .company-logo {
-       margin-left: 0;
-       margin-right: auto;
-   }
-}
-
-/* Eğitim Bölümü */
-.section-title {
-   margin: 40px 0 20px 0;
-   color: var(--white2);
-   position: relative;
-   padding-bottom: 7px;
-}
-
-.section-title::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 30px;
-   height: 3px;
-   background: var(--text-gradient-yellow);
-   border-radius: 3px;
-}
-
-.education-list {
-   display: grid;
-   grid-template-columns: 1fr;
-   gap: 20px;
-}
-
-.education-item {
-   display: flex;
-   align-items: flex-start;
-   padding: 20px;
-   animation: slideInRight 0.6s ease-out forwards;
-   opacity: 0;
-}
-
-.education-item:nth-child(1) {
-   animation-delay: 0.3s;
-}
-
-.education-item:nth-child(2) {
-   animation-delay: 0.6s;
-}
-
-.education-icon-box {
-   margin-right: 15px;
-   color: var(--orange-yellow-crayola);
-   font-size: 24px;
-}
-
-.education-content {
-   flex: 1;
-}
-
-.education-title {
-   margin-bottom: 5px;
-   color: var(--white2);
-}
-
-.education-date, .education-school {
-   display: block;
-   color: var(--orange-yellow-crayola);
-   font-size: var(--fs7);
-   margin-bottom: 5px;
-}
-
-.education-school {
-   font-style: italic;
-   color: var(--light-gray);
-}
-
-.education-description {
-   color: var(--light-gray);
-   font-size: var(--fs6);
-   line-height: 1.6;
-   margin-top: 10px;
-}
-
-@media (min-width: 580px) {
-   .timeline::before {
-       left: 20px;
-   }
-   
-   .timeline-item {
-       padding-left: 60px;
-   }
-   
-   .timeline-dot {
-       width: 20px;
-       height: 20px;
-       left: 10px;
-   }
-}
-
 @media (min-width: 768px) {
    .education-list {
        grid-template-columns: 1fr 1fr;
@@ -1413,102 +1275,372 @@ textarea.form-input {
 }
 
 @media (min-width: 1024px) {
-   .timeline::before {
-       left: calc(50% - 1px);
+
+   :root {
+       --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .125);
+       --shadow2: 0px 16px 30px hsla(0, 0%, 0%, .125);
+       --shadow3: 0px 16px 40px hsla(0, 0%, 0%, .125);
    }
-   
-   .timeline-item {
-       padding-left: 0;
-       width: 50%;
+
+   .sidebar, article {
+       width: 950px;
+       box-shadow: var(--shadow5);
    }
-   
-   .timeline-item:nth-child(odd) {
-       padding-right: 40px;
-       margin-right: auto;
-       margin-left: 0;
-       text-align: right;
+
+   main { margin-bottom: 60px; }
+
+   .main-content {
+       position: relative;
+       width: max-content;
+       margin: auto;
    }
-   
-   .timeline-item:nth-child(even) {
-       padding-left: 40px;
-       margin-left: auto;
-       margin-right: 0;
-   }
-   
-   .timeline-dot {
+
+   .navbar {
+       position: absolute;
+       bottom: auto;
+       top: 0;
        left: auto;
-       right: -10px;
+       right: 0;
+       width: max-content;
+       border-radius: 0 20px;
+       padding: 0 20px;
+       box-shadow: none;
+   }
+
+   .navbar-list {
+       gap: 30px;
+       padding: 0 20px;
+   }
+
+   .navbar-link { font-weight: var(--fw500); }
+
+   .service-list {
+       grid-template-columns: 1fr 1fr;
+       gap: 20px 25px;
+   }
+
+   .projects-list {
+       grid-template-columns: repeat(3, 1fr);
+   }
+}
+
+@media (min-width: 1250px) {
+
+   body::-webkit-scrollbar { width: 20px; }
+   body::-webkit-scrollbar-track { background: var(--smoky-black); }
+
+   body::-webkit-scrollbar-thumb {
+       border: 5px solid var(--smoky-black);
+       background: hsla(0, 0%, 100%, .1);
+       border-radius: 20px;
+       box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, .11), inset -1px -1px 0 hsla(0, 0%, 100%, .11);
+   }
+
+   body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, .15); }
+   body::-webkit-scrollbar-button { height: 60px; }
+
+   .sidebar, article { width: auto; }
+
+   article { min-height: 100%; }
+
+   main {
+       max-width: 1200px;
+       margin-inline: auto;
+       display: flex;
+       justify-content: center;
+       align-items: stretch;
+       gap: 25px;
+   }
+
+   .main-content {
+       min-width: 75%;
+       width: 75%;
+       margin: 0;
+   }
+
+   .sidebar {
+       position: sticky;
+       top: 60px;
+       max-height: max-content;
+       height: 100%;
+       margin-bottom: 0;
+       padding-top: 60px;
+       z-index: 1;
+   }
+
+   .sidebar-info { flex-direction: column; }
+
+   .avatar-box img { width: 150px; }
+   
+   .avatar-box { 
+       margin-bottom: 15px; 
+       padding: 5px;
    }
    
-   .timeline-item:nth-child(even) .timeline-dot {
-       right: auto;
-       left: -10px;
+   .avatar-box::before {
+       animation: rotate-gradient 4s linear infinite, glowing 3s infinite;
    }
-}
 
-/* Şirket Logo Stilleri */
-.company-logo {
-   display: flex;
-   justify-content: center;
-   margin-bottom: 15px;
-   background: var(--bg-gradient-jet);
-   border-radius: 10px;
-   padding: 10px;
-   border: 1px solid var(--jet);
-   box-shadow: var(--shadow1);
-   transition: all 0.3s ease;
-}
-
-.company-logo img {
-   max-width: 80px;
-   height: auto;
-   object-fit: contain;
-   background-color: rgba(255, 255, 255, 0.9);
-   padding: 5px;
-   border-radius: 5px;
-   transition: transform 0.3s ease;
-}
-
-.timeline-content:hover .company-logo {
-   transform: translateY(-5px);
-   box-shadow: var(--shadow2);
-}
-
-.timeline-content:hover .company-logo img {
-   transform: scale(1.05);
-}
-
-@media (min-width: 768px) {
-   .company-logo {
-       padding: 12px;
+   .info-content .name {
+       white-space: nowrap;
+       text-align: center;
    }
-   
-   .company-logo img {
-       max-width: 100px;
+
+   .info-content .title { margin: auto; }
+
+   .info-more-btn { display: none; }
+
+   .sidebar-info-more {
+       opacity: 1;
+       visibility: visible;
    }
+
+   .contacts-list { grid-template-columns: 1fr; }
+
+   .contact-info :is(.contact-link) {
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
+
+   .contact-info :is(.contact-link, time, address) {
+       --fs7: 14px;
+       font-weight: var(--fw300);
+   }
+
+   .separator:last-of-type {
+       margin: 15px 0;
+       opacity: 0;
+   }
+
+   .social-list { justify-content: center; }
 }
 
-/* Eğitim Bölümüne Logo Eklemeleri */
-.education-item .education-icon-box {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-right: 15px;
-   font-size: 24px;
-   min-width: 48px;
+/* Gelişmiş Animasyonlar */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
-.education-item .education-logo {
-   max-width: 90px;
-   height: auto;
-   margin-right: 15px;
-   background-color: rgba(255, 255, 255, 0.9);
-   padding: 5px;
-   border-radius: 5px;
-   transition: transform 0.3s ease;
+@keyframes textGlow {
+    0% { text-shadow: 0 0 4px rgba(255, 215, 0, 0.1); }
+    50% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+    100% { text-shadow: 0 0 4px rgba(255, 215, 0, 0.1); }
 }
 
-.education-item:hover .education-logo {
-   transform: scale(1.1);
+@keyframes borderFlash {
+    0% { border-color: var(--orange-yellow-crayola); }
+    50% { border-color: var(--vegas-gold); }
+    100% { border-color: var(--orange-yellow-crayola); }
 }
-   
+
+@keyframes page-enter {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes page-exit {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-30px); }
+}
+
+@keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Gelişmiş Animasyon Sınıfları */
+.page-enter {
+    animation: page-enter 0.6s ease forwards;
+}
+
+.page-exit {
+    animation: page-exit 0.4s ease forwards;
+}
+
+/* Avatar animasyonu */
+.avatar-box {
+    position: relative;
+    overflow: hidden;
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Sosyal medya ikonları animasyonu */
+.social-pulse {
+    animation: pulse 0.6s ease-in-out;
+    color: var(--orange-yellow-crayola) !important;
+}
+
+.social-item .social-link:hover ion-icon {
+    transform: scale(1.2) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Servis kartları animasyonu */
+.animate-service {
+    animation: fadeSlideUp 0.6s ease forwards;
+}
+
+/* Navbar hover efektleri */
+.navbar-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange-yellow-crayola);
+    transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+    width: 100%;
+}
+
+/* Sidebar hover efekti */
+.sidebar-hover:not(.active) {
+    transform: translateY(-5px);
+    box-shadow: 0px 20px 35px hsla(0, 0%, 0%, .3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hakkımda metni animasyonu */
+.about-text p {
+    position: relative;
+}
+
+.about-text p::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+    width: 0;
+    height: 1px;
+    background: var(--orange-yellow-crayola);
+    transition: width 0.6s ease;
+}
+
+.about-text p:hover::after {
+    width: calc(100% - 20px);
+}
+
+/* Servis kartları parıltı efekti */
+.service-item::before {
+    background-size: 200% 100%;
+    background-image: linear-gradient(90deg, 
+        var(--bg-gradient-jet) 0%, 
+        var(--bg-gradient-jet) 35%, 
+        var(--bg-gradient-jet) 45%, 
+        rgba(255,215,0,0.15) 50%, 
+        var(--bg-gradient-jet) 55%, 
+        var(--bg-gradient-jet) 65%, 
+        var(--bg-gradient-jet) 100%);
+    animation: shine 3s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.service-item:hover::before {
+    animation-play-state: running;
+}
+
+/* Beceri çubukları gelişmiş animasyonu */
+.skills-progress-fill {
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: skillShine 2s ease-in-out infinite;
+}
+
+@keyframes skillShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Zaman çizgisi gelişmiş animasyonu */
+.timeline-dot {
+    animation: pulse 2s infinite;
+}
+
+.timeline-item {
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.timeline-item:hover .timeline-dot {
+    animation-duration: 1s;
+}
+
+/* Proje kartları için 3D efekti */
+.project-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+.project-image img {
+    backface-visibility: hidden;
+    transition: transform 0.5s ease;
+}
+
+/* Parti̇kül efekti için stil */
+#particle-canvas {
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+}
+
+/* Animasyonlu başlık stilllendirme */
+.article-title span {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.article-title:hover span {
+    animation: textGlow 2s ease-in-out infinite;
+    color: var(--orange-yellow-crayola);
+}
+
+/* Geniş ekranlarda daha güçlü hover efektleri */
+@media (min-width: 1024px) {
+    .service-item:hover {
+        transform: translateY(-8px);
+    }
+    
+    /* Particle efekti */
+    #particle-canvas {
+        opacity: 0.5;
+    }
+}
